@@ -1,0 +1,6 @@
+﻿# Basic .gitignore
+
+bin/
+obj/
+.vs/
+*.user
