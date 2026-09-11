@@ -107,14 +107,46 @@ namespace OsuruktanDertButton
             Controls.Add(_resultLabel);
         }
 
-
-
-
-
+        //object? sender, EventArgs e — bu imza WinForms'taki standart event handler kalıbı. sender olayı tetikleyen kontrolü işaret eder (burada ComboBox), e olayla ilgili ek bilgi taşır. Biz ikisini de kullanmıyoruz ama imzayı böyle yazmak zorundayız çünkü SelectedIndexChanged event'i bu şekli bekliyor — parametre isimlerini değiştirebiliriz ama tipleri/sayısı sabit.
+        private void OnLanguageChanged(object sender, EventArgs e)
+        {
+            _currentLanguage = _languageComboBox.SelectedIndex switch //burada eski switch statement'ından farklı, yeni nesil switch expression kullanıyoruz (C# 8+)
+            {
+                0 => Language.Turkish,
+                1 => Language.English,
+                2 => Language.German,
+                _ => Language.Turkish,
+            };
+            ApplyLanguage(); //çağırıyoruz — bütün kontrollerin metnini yeni seçilen dile göre günceller.
+        }
         private void ApplyLanguage()
         {
-            throw new NotImplementedException();
+            Text = Localization.Get(Localization.WindowTitle, _currentLanguage);
+            _languageLabel.Text = Localization.Get(Localization.LanguageLabel, _currentLanguage);
+            _promptLabel.Text = Localization.Get(Localization.PromptLabel, _currentLanguage);
+            _solveButton.Text = Localization.Get(Localization.SolveButton, _currentLanguage);
+            _historyButton.Text = Localization.Get(Localization.HistoryButton, _currentLanguage);
         }
+        private void OnSolveClicked(object? sender, EventArgs e)
+        {
+            var complaint = _complaintTextBox.Text.Trim();
 
+            if (string.IsNullOrWhiteSpace(complaint))
+            {
+                _resultLabel.ForeColor = Color.DarkOrange;
+                _resultLabel.Text = Localization.Get(Localization.EmptyInputWarning, _currentLanguage);
+                return;
+            }
+            ComplaintStore.AddComplaint(complaint);
+
+            _complaintTextBox.Clear();
+            _resultLabel.ForeColor = Color.DarkRed;
+            _resultLabel.Text = Localization.Get(Localization.ResultMessage, _currentLanguage);
+        }
+        private void OnHistoryClicked(object? sender, EventArgs e)
+        {
+            using var historyForm = new HistoryForm(_currentLanguage);
+            historyForm.ShowDialog(this);
+        }
     }
 }
