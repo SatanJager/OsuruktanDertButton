@@ -1,5 +1,7 @@
 ﻿using System;
 using System.ComponentModel.Design.Serialization;
+using System.Drawing.Drawing2D;
+
 namespace OsuruktanDertButton
 {
     public partial class MainForm : Form
@@ -24,7 +26,7 @@ namespace OsuruktanDertButton
         {
             Text = Localization.Get(Localization.WindowTitle, _currentLanguage);  //Percerenin başlık çubuğunda gözüke yazı
             Width = 480;
-            Height = 380;
+            Height = 480;
             StartPosition = FormStartPosition.CenterScreen; //Percere açılınca ekranın ortasında çıksın
             FormBorderStyle = FormBorderStyle.FixedDialog; //Percere sabit boyutlu.
             MaximizeBox = false; //Sabit boyut - Sağ üsteki pencere büyütücü inaktif
@@ -72,17 +74,28 @@ namespace OsuruktanDertButton
 
             _solveButton = new Button
             {
-                Left = 20,
+                Left = 185,
                 Top = 215,
-                Width = 200,
-                Height = 40,
+                Width = 110,
+                Height = 110,
             };
             _solveButton.Click += OnSolveClicked; //SolveButton'a basılınca OnSolveClicked metodu başlayacak
 
+            //Solve button'u daire yapıyoruz.
+            _solveButton.FlatStyle = FlatStyle.Flat;
+            _solveButton.FlatAppearance.BorderSize = 0;
+            _solveButton.BackColor = Color.Firebrick;
+            _solveButton.ForeColor = Color.White;
+            _solveButton.Font = new Font(Font.FontFamily, 11, FontStyle.Bold);
+
+            var solveButtonPath = new GraphicsPath();
+            solveButtonPath.AddEllipse(0, 0, _solveButton.Width, _solveButton.Height);
+            _solveButton.Region = new Region(solveButtonPath);
+
             _historyButton = new Button
             {
-                Left = 250,
-                Top = 215,
+                Left = 140,
+                Top = 345,
                 Width= 200,
                 Height = 40,
             };
@@ -91,7 +104,7 @@ namespace OsuruktanDertButton
             _resultLabel = new Label
             {
                 Left = 20,
-                Top = 270,
+                Top = 400,
                 Width = 430,
                 Height = 60,
                 Font = new Font(Font.FontFamily, 10, FontStyle.Bold),  //Varsayılan sistem fontu
