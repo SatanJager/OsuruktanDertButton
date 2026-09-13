@@ -44,6 +44,7 @@
 | `HistoryForm.cs` | "Önceki Dertlerim" penceresi |
 | `Localization.cs` | TR/EN/DE metin çevirileri |
 | `ComplaintStore.cs` | Dertlerin diske yazılması/okunması |
+| `BigRedButton.cs` | Özel çizilmiş, animasyonlu yuvarlak "Çözüm" butonu |
 
 ## Yol Haritası
 
@@ -51,8 +52,8 @@ Proje aşağıdaki epic'ler halinde geliştiriliyor:
 
 - [x] Temel UI ve dil desteği
 - [x] Kayıt mekanizması (dert kaydetme, geçmiş görüntüleme, temizleme)
-- [ ] Cilalama (yuvarlak animasyonlu "Çözüm" butonu, kullanılabilirlik iyileştirmeleri
-- [ ] Ekstra özellikler (versiyonlama, ikon, sistem tepsisine küçütme, ses efektleri)
+- [ ] Cilalama — yuvarlak animasyonlu "Çözüm" butonu ✅, "Önceki Dertlerimi Kapat" butonu ✅, kutuya tıklayınca eski mesajı temizleme ✅, ikon/tema ekleme ⏳, kurulum paketi (installer) hazırlama ⏳
+- [ ] Ekstra özellikler (versiyonlama, sistem tepsisine küçültme, ses efektleri, tek bir derdi silme)
 
 ## Katkıda Bulunma
 
@@ -96,6 +97,24 @@ A tribute to the beloved, gloriously useless dektop programs of the 2000s. Type 
 - Open  `OsuruktanDertButton.csproj` in Visual Studio (.NET 8 SDK required).
 - Press `F5`.
 
+## Project strucure
+
+| File | Description |
+|---|---|
+| `Program.cs` | Application entry point |
+| `MainForm.cs` | Main window — problem input screen, language selector |
+| `HistoryForm.cs` | "My Previous Problems" window |
+| `Localization.cs` | TR/EN/DE text translations |
+| `ComplaintStore.cs` | Writing/reading complaints to disk |
+| `BigRedButton.cs` | Custom-drawn, animated circular "Solve" button |
+
+## Roadmap
+
+- [x] Basic UI and language support
+- [x] Storage mechanism (saving, viewing history, clearing)
+- [ ] Polish — animated circular "Solve" button ✅, "Close previous problems" button ✅, clear old message on textbox focus ✅, icon/theme ⏳, installer package ⏳
+- [ ] Extra features (versioning, system tray minimize, sound effects, delete a single entry)
+
 ## License
 
 Not yet determined.
@@ -133,6 +152,23 @@ Eine Hommage an die herrlich nutzlosen, aber liebenswerten Desktop-Programme der
 - Repository klonen.
 - `OsuruktanDertButton.csproj` in Visual Studio öffnen (.NET 8 SDK erforderlich).
 - `F5` drücken.
+
+## Projektstruktur
+
+|---|---|
+| `Program.cs` | Einstiegspunkt der Anwendung |
+| `MainForm.cs` | Hauptfenster — Eingabebildschirm für Probleme, Sprachauswahl |
+| `HistoryForm.cs` | Fenster "Meine bisherigen Sorgen" |
+| `Localization.cs` | TR/EN/DE Textübersetzungen |
+| `ComplaintStore.cs` | Schreiben/Lesen der Probleme auf die Festplatte |
+| `BigRedButton.cs` | Selbst gezeichneter, animierter runder "Lösung"-Button |
+
+## Roadmap
+
+- [x] Grundlegende UI und Sprachunterstützung
+- [x] Speichermechanismus (Speichern, Verlauf anzeigen, Löschen)
+- [ ] Feinschliff — animierter runder "Lösung"-Button ✅, Button "Bisherige Sorgen schließen" ✅, alte Nachricht beim Fokussieren des Textfelds löschen ✅, Icon/Design ⏳, Installationspaket ⏳
+- [ ] Zusätzliche Funktionen (Versionierung, Minimieren in die Taskleiste, Soundeffekte, einzelnen Eintrag löschen)
 
 ## Lizenz
 

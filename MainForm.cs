@@ -1,6 +1,5 @@
 ﻿using System;
-using System.ComponentModel.Design.Serialization;
-using System.Drawing.Drawing2D;
+//using System.Drawing.Drawing2D; //Eski button için lazım
 
 namespace OsuruktanDertButton
 {
@@ -12,7 +11,8 @@ namespace OsuruktanDertButton
         private Label _languageLabel = null!;
         private Label _promptLabel = null!;
         private TextBox _complaintTextBox = null!;
-        private Button _solveButton = null!;
+        //private Button _solveButton = null!;  // Eski button
+        private BigRedButton _solveButton = null!; // Yeni button
         private Button _historyButton = null!;
         private Label _resultLabel = null!;
 
@@ -72,25 +72,37 @@ namespace OsuruktanDertButton
             };
             _complaintTextBox.Enter += OnComplaintTextBoxEnter;
 
-            _solveButton = new Button
+            // Eski tuş:
+            //_solveButton = new Button
+            //{
+            //    Left = 185,
+            //    Top = 215,
+            //    Width = 110,
+            //    Height = 110,
+            //};
+            //_solveButton.Click += OnSolveClicked; //SolveButton'a basılınca OnSolveClicked metodu başlayacak
+
+            ////Solve button'u daire yapıyoruz.
+            //_solveButton.FlatStyle = FlatStyle.Flat;
+            //_solveButton.FlatAppearance.BorderSize = 0;
+            //_solveButton.BackColor = Color.Firebrick;
+            //_solveButton.ForeColor = Color.White;
+            //_solveButton.Font = new Font(Font.FontFamily, 11, FontStyle.Bold);
+
+            //var solveButtonPath = new GraphicsPath();
+            //solveButtonPath.AddEllipse(0, 0, _solveButton.Width, _solveButton.Height);
+            //_solveButton.Region = new Region(solveButtonPath);
+
+            _solveButton = new BigRedButton
             {
                 Left = 185,
                 Top = 215,
                 Width = 110,
                 Height = 110,
+                ForeColor = Color.White,
+                Font = new Font(Font.FontFamily, 11, FontStyle.Bold),
             };
             _solveButton.Click += OnSolveClicked; //SolveButton'a basılınca OnSolveClicked metodu başlayacak
-
-            //Solve button'u daire yapıyoruz.
-            _solveButton.FlatStyle = FlatStyle.Flat;
-            _solveButton.FlatAppearance.BorderSize = 0;
-            _solveButton.BackColor = Color.Firebrick;
-            _solveButton.ForeColor = Color.White;
-            _solveButton.Font = new Font(Font.FontFamily, 11, FontStyle.Bold);
-
-            var solveButtonPath = new GraphicsPath();
-            solveButtonPath.AddEllipse(0, 0, _solveButton.Width, _solveButton.Height);
-            _solveButton.Region = new Region(solveButtonPath);
 
             _historyButton = new Button
             {
