@@ -68,6 +68,7 @@ namespace OsuruktanDertButton
                 Multiline = true,  //TextBox'ı multiline yaptık
                 ScrollBars = ScrollBars.Vertical, //Kullanıcı çok uzun bir yazı yazarsa kaydırma çubuğu çıksın
             };
+            _complaintTextBox.Enter += OnComplaintTextBoxEnter;
 
             _solveButton = new Button
             {
@@ -147,6 +148,10 @@ namespace OsuruktanDertButton
         {
             using var historyForm = new HistoryForm(_currentLanguage);
             historyForm.ShowDialog(this);
+        }
+        private void OnComplaintTextBoxEnter(object? sender, EventArgs e)
+        {
+            _resultLabel.Text = string.Empty;
         }
     }
 }
