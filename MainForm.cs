@@ -122,7 +122,7 @@ namespace OsuruktanDertButton
         }
 
         //object? sender, EventArgs e — bu imza WinForms'taki standart event handler kalıbı. sender olayı tetikleyen kontrolü işaret eder (burada ComboBox), e olayla ilgili ek bilgi taşır. Biz ikisini de kullanmıyoruz ama imzayı böyle yazmak zorundayız çünkü SelectedIndexChanged event'i bu şekli bekliyor — parametre isimlerini değiştirebiliriz ama tipleri/sayısı sabit.
-        private void OnLanguageChanged(object sender, EventArgs e)
+        private void OnLanguageChanged(object? sender, EventArgs e)
         {
             _currentLanguage = _languageComboBox.SelectedIndex switch //burada eski switch statement'ından farklı, yeni nesil switch expression kullanıyoruz (C# 8+)
             {
