@@ -18,11 +18,14 @@ namespace OsuruktanDertButton
             _language = language;
             InitializeUi();
             LoadHistory();
+            Themes.ThemeChanged += OnThemeChangedGlobally;
+            ApplyTheme();
         }
 
         private void InitializeUi()
         {
             Text = Localization.Get(Localization.HistoryWindowTitle, _language);
+            Icon = new Icon(Path.Combine(AppContext.BaseDirectory, "AppIcon.ico"));
             Width = 480;
             Height = 420;
             StartPosition = FormStartPosition.CenterParent;
@@ -47,6 +50,7 @@ namespace OsuruktanDertButton
                 Text = Localization.Get(Localization.ClearHistoryButton, _language),
             };
             _clearButton.Click += OnCLearClicked;
+            _clearButton.FlatStyle = FlatStyle.Flat;
 
             _closeButton = new Button
             {
@@ -57,7 +61,8 @@ namespace OsuruktanDertButton
                 Text = Localization.Get(Localization.CloseHistoryButton, _language),
             };
             _closeButton.Click += OnCloseClicked;
-
+            _closeButton.FlatStyle = FlatStyle.Flat;
+           
             // Kontrolleri Ram'den çağırdık
             Controls.Add(_historyListBox);
             Controls.Add(_clearButton);
@@ -91,5 +96,26 @@ namespace OsuruktanDertButton
         {
             Close();
         }
+        private void OnThemeChangedGlobally(object? sender, EventArgs e)
+        {
+            ApplyTheme();
+        }
+        private void ApplyTheme()
+        {
+            var colors = Themes.Current;
+
+            BackColor = colors.FormBackColor;
+            _historyListBox.BackColor = colors.TextBoxBackColor;
+            _historyListBox.ForeColor = colors.TextBoxForeColor;
+
+            _clearButton.BackColor = colors.ButtonFaceDark;
+            _clearButton.ForeColor = colors.ButtonTextColor;
+
+            _closeButton.BackColor = colors.SecondaryButtonBackColor;
+            _closeButton.ForeColor = colors.SecondaryButtonTextColor;
+
+        }
+
+
     }
 }

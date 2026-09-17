@@ -16,8 +16,9 @@ namespace OsuruktanDertButton
         private float _currentOffset = 0f;
         private float _targetOffset = 0f;
         private bool _isMouseDown = false;
-
         private readonly System.Windows.Forms.Timer _animationTimer;
+        public Color LightFaceColor { get; set; } = Color.IndianRed;
+        public Color DarkFaceColor { get; set; } = Color.Firebrick;
 
         public BigRedButton()
         {
@@ -98,7 +99,7 @@ namespace OsuruktanDertButton
             int faceHeight = Height - MaxPressOffset;
             var faceRect = new Rectangle(0, (int)_currentOffset, Width, faceHeight);
 
-            using (var faceBrush = new LinearGradientBrush(faceRect, Color.IndianRed, Color.Firebrick, LinearGradientMode.ForwardDiagonal))
+            using (var faceBrush = new LinearGradientBrush(faceRect, LightFaceColor, DarkFaceColor, LinearGradientMode.ForwardDiagonal))
             {
                 g.FillEllipse(faceBrush, faceRect);
             }

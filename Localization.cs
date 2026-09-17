@@ -72,18 +72,37 @@ namespace OsuruktanDertButton
             [Language.English] = "Clear History",
             [Language.German] = "Verlauf löschen"
         };
-        public static readonly Dictionary<Language, string> LanguageLabel = new()
-        {
-            [Language.Turkish] = "Dil:",
-            [Language.English] = "Language:",
-            [Language.German] = "Sprache:"
-        };
         public static readonly Dictionary<Language, string> CloseHistoryButton = new()
         {
             [Language.Turkish] = "Kapat",
             [Language.English] = "Close",
             [Language.German] = "Schließen"
         };
+        public static readonly Dictionary<Language, string> LanguageLabel = new()
+        {
+            [Language.Turkish] = "Dil:",
+            [Language.English] = "Language:",
+            [Language.German] = "Sprache:"
+        };
+        public static readonly Dictionary<Language, string> ThemeRetroClassicName = new()
+        {
+            [Language.Turkish] = "2000'ler Klasik",
+            [Language.English] = "Retro Classic",
+            [Language.German] = "Retro-Klassisch"
+        };
+        public static readonly Dictionary<Language, string> ThemeDarkName = new()
+        {
+            [Language.Turkish] = "Karanlık",
+            [Language.English] = "Dark",
+            [Language.German] = "Dunkel"
+        };
+        public static readonly Dictionary<Language, string> ThemeLightName = new()
+        {
+            [Language.Turkish] = "Aydınlık",
+            [Language.English] = "Light",
+            [Language.German] = "Hell"
+        };
+
 
 
         public static string Get(Dictionary<Language, string> dict, Language lang) => dict.TryGetValue(lang, out var value) ? value : dict[Language.English];

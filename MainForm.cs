@@ -8,6 +8,7 @@ namespace OsuruktanDertButton
         private Language _currentLanguage = Language.Turkish;
 
         private ComboBox _languageComboBox = null!;
+        private ComboBox _themeComboBox = null!;
         private Label _languageLabel = null!;
         private Label _promptLabel = null!;
         private TextBox _complaintTextBox = null!;
@@ -20,11 +21,14 @@ namespace OsuruktanDertButton
         {
             InitializeUi();
             ApplyLanguage();
+            Themes.ThemeChanged += OnThemeChangedGlobally;
+            ApplyTheme();
         }
 
         private void InitializeUi()
         {
             Text = Localization.Get(Localization.WindowTitle, _currentLanguage);  //Percerenin başlık çubuğunda gözüke yazı
+            Icon = new Icon(Path.Combine(AppContext.BaseDirectory, "AppIcon.ico"));
             Width = 480;
             Height = 480;
             StartPosition = FormStartPosition.CenterScreen; //Percere açılınca ekranın ortasında çıksın
@@ -46,12 +50,21 @@ namespace OsuruktanDertButton
                 Width = 150,
                 DropDownStyle = ComboBoxStyle.DropDownList,
             };
-
             _languageComboBox.Items.Add("Türkçe"); //0
             _languageComboBox.Items.Add("English"); //1
             _languageComboBox.Items.Add("Deutsch"); //2
             _languageComboBox.SelectedIndex = 0;
             _languageComboBox.SelectedIndexChanged += OnLanguageChanged; // kullanıcı listeden birşey seçtiğinde OnLanguageChanged metodu çalışacak
+
+            _themeComboBox = new ComboBox
+            {
+                Left = 250,
+                Top = 12,
+                Width = 150,
+                DropDownStyle= ComboBoxStyle.DropDownList,
+            };
+            PopulateThemeComboBoxItems();
+            _themeComboBox.SelectedIndexChanged += OnThemeChanged;
 
             _promptLabel = new Label
             {
@@ -112,6 +125,7 @@ namespace OsuruktanDertButton
                 Height = 40,
             };
             _historyButton.Click += OnHistoryClicked; //HistoryButton basıldığında OnHistoryClicked metodu başlayacak
+            _historyButton.FlatStyle = FlatStyle.Flat;
 
             _resultLabel = new Label
             {
@@ -126,11 +140,24 @@ namespace OsuruktanDertButton
             //Yaratılan nesneleri (RAM' yarattığımız new'leri) ekrana basıyoruz.
             Controls.Add(_languageLabel);
             Controls.Add(_languageComboBox);
+            Controls.Add(_themeComboBox);
             Controls.Add(_promptLabel);
             Controls.Add(_complaintTextBox);
             Controls.Add(_solveButton);
             Controls.Add(_historyButton);
             Controls.Add(_resultLabel);
+        }
+
+        private void PopulateThemeComboBoxItems()
+        {
+            var previousIndex = _themeComboBox.SelectedIndex;
+
+            _themeComboBox.Items.Clear();
+            _themeComboBox.Items.Add(Localization.Get(Localization.ThemeRetroClassicName, _currentLanguage));
+            _themeComboBox.Items.Add(Localization.Get(Localization.ThemeDarkName, _currentLanguage));
+            _themeComboBox.Items.Add(Localization.Get(Localization.ThemeLightName, _currentLanguage));
+
+            _themeComboBox.SelectedIndex = previousIndex >= 0 ? previousIndex : 0;
         }
 
         //object? sender, EventArgs e — bu imza WinForms'taki standart event handler kalıbı. sender olayı tetikleyen kontrolü işaret eder (burada ComboBox), e olayla ilgili ek bilgi taşır. Biz ikisini de kullanmıyoruz ama imzayı böyle yazmak zorundayız çünkü SelectedIndexChanged event'i bu şekli bekliyor — parametre isimlerini değiştirebiliriz ama tipleri/sayısı sabit.
@@ -144,6 +171,40 @@ namespace OsuruktanDertButton
                 _ => Language.Turkish,
             };
             ApplyLanguage(); //çağırıyoruz — bütün kontrollerin metnini yeni seçilen dile göre günceller.
+            PopulateThemeComboBoxItems(); // dil değiştiğinde thema combobox'u güncellenir
+        }
+        private void OnThemeChanged(object? sender, EventArgs e)
+        {
+            var selectedTheme = _themeComboBox.SelectedIndex switch
+            {
+                0 => AppTheme.RetroClassic,
+                1 => AppTheme.Dark,
+                2 => AppTheme.Light,
+                _ => AppTheme.RetroClassic,
+            };
+            Themes.SetTheme(selectedTheme);
+        }
+        private void OnThemeChangedGlobally(object? sender, EventArgs e)
+        {
+            ApplyTheme();
+        }
+        private void ApplyTheme()
+        {
+            var colors = Themes.Current;
+
+            BackColor = colors.FormBackColor;
+            _languageLabel.ForeColor = colors.LabelForeColor;
+            _promptLabel.ForeColor = colors.LabelForeColor;
+            _complaintTextBox.BackColor = colors.TextBoxBackColor;
+            _complaintTextBox.ForeColor = colors.TextBoxForeColor;
+
+            _historyButton.BackColor = colors.SecondaryButtonBackColor;
+            _historyButton.ForeColor = colors.SecondaryButtonTextColor;
+
+            _solveButton.LightFaceColor = colors.ButtonFaceLight;
+            _solveButton.DarkFaceColor = colors.ButtonFaceDark;
+            _solveButton.ForeColor = colors.ButtonTextColor;
+            _solveButton.Invalidate();
         }
         private void ApplyLanguage()
         {
