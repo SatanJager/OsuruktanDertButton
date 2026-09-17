@@ -52,7 +52,7 @@ Proje aşağıdaki epic'ler halinde geliştiriliyor:
 
 - [x] Temel UI ve dil desteği
 - [x] Kayıt mekanizması (dert kaydetme, geçmiş görüntüleme, temizleme)
-- [ ] Cilalama — yuvarlak animasyonlu "Çözüm" butonu ✅, "Önceki Dertlerimi Kapat" butonu ✅, kutuya tıklayınca eski mesajı temizleme ✅, ikon/tema ekleme ⏳, kurulum paketi (installer) hazırlama ⏳
+- [ ] Cilalama — yuvarlak animasyonlu "Çözüm" butonu ✅, "Önceki Dertlerimi Kapat" butonu ✅, kutuya tıklayınca eski mesajı temizleme ✅, ikon/tema ekleme ✅, kurulum paketi (installer) hazırlama ⏳
 - [ ] Ekstra özellikler (versiyonlama, sistem tepsisine küçültme, ses efektleri, tek bir derdi silme)
 
 ## Katkıda Bulunma
@@ -112,7 +112,7 @@ A tribute to the beloved, gloriously useless dektop programs of the 2000s. Type 
 
 - [x] Basic UI and language support
 - [x] Storage mechanism (saving, viewing history, clearing)
-- [ ] Polish — animated circular "Solve" button ✅, "Close previous problems" button ✅, clear old message on textbox focus ✅, icon/theme ⏳, installer package ⏳
+- [ ] Polish — animated circular "Solve" button ✅, "Close previous problems" button ✅, clear old message on textbox focus ✅, icon/theme ✅, installer package ⏳
 - [ ] Extra features (versioning, system tray minimize, sound effects, delete a single entry)
 
 ## License
@@ -167,7 +167,7 @@ Eine Hommage an die herrlich nutzlosen, aber liebenswerten Desktop-Programme der
 
 - [x] Grundlegende UI und Sprachunterstützung
 - [x] Speichermechanismus (Speichern, Verlauf anzeigen, Löschen)
-- [ ] Feinschliff — animierter runder "Lösung"-Button ✅, Button "Bisherige Sorgen schließen" ✅, alte Nachricht beim Fokussieren des Textfelds löschen ✅, Icon/Design ⏳, Installationspaket ⏳
+- [ ] Feinschliff — animierter runder "Lösung"-Button ✅, Button "Bisherige Sorgen schließen" ✅, alte Nachricht beim Fokussieren des Textfelds löschen ✅, Icon/Design ✅, Installationspaket ⏳
 - [ ] Zusätzliche Funktionen (Versionierung, Minimieren in die Taskleiste, Soundeffekte, einzelnen Eintrag löschen)
 
 ## Lizenz
