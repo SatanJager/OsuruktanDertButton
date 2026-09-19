@@ -52,8 +52,8 @@ Proje aşağıdaki epic'ler halinde geliştiriliyor:
 
 - [x] Temel UI ve dil desteği
 - [x] Kayıt mekanizması (dert kaydetme, geçmiş görüntüleme, temizleme)
-- [ ] Cilalama — yuvarlak animasyonlu "Çözüm" butonu ✅, "Önceki Dertlerimi Kapat" butonu ✅, kutuya tıklayınca eski mesajı temizleme ✅, ikon/tema ekleme ✅, kurulum paketi (installer) hazırlama ⏳
-- [ ] Ekstra özellikler (versiyonlama, sistem tepsisine küçültme, ses efektleri, tek bir derdi silme)
+- [x] Cilalama — yuvarlak animasyonlu "Çözüm" butonu ✅, "Önceki Dertlerimi Kapat" butonu ✅, kutuya tıklayınca eski mesajı temizleme ✅, ikon/tema ekleme ✅, kurulum paketi (installer) hazırlama ✅
+- [ ] Ekstra özellikler (versiyonlama ⏳, sistem tepsisine küçültme ⏳, ses efektleri ⏳, tek bir derdi silme ⏳)
 
 ## Katkıda Bulunma
 
@@ -68,6 +68,8 @@ Henüz belirlenmedi.
 ## English
 
 [🇹🇷 Türkçe](#turkce) | 🇬🇧 English | [🇩🇪 Deutsch](#deutsch)
+
+# Fart-Grade Problem Button 💨
 
 A tribute to the beloved, gloriously useless dektop programs of the 2000s. Type your problem, press **Solve** - the app will instantly (and correctly) declare it trivial.
 
@@ -112,8 +114,8 @@ A tribute to the beloved, gloriously useless dektop programs of the 2000s. Type 
 
 - [x] Basic UI and language support
 - [x] Storage mechanism (saving, viewing history, clearing)
-- [ ] Polish — animated circular "Solve" button ✅, "Close previous problems" button ✅, clear old message on textbox focus ✅, icon/theme ✅, installer package ⏳
-- [ ] Extra features (versioning, system tray minimize, sound effects, delete a single entry)
+- [x] Polish — animated circular "Solve" button ✅, "Close previous problems" button ✅, clear old message on textbox focus ✅, icon/theme ✅, installer package ✅⏳
+- [ ] Extra features (versioning ⏳, system tray minimize ⏳, sound effects ⏳, delete a single entry ⏳)
 
 ## License
 
@@ -124,6 +126,8 @@ Not yet determined.
 ## Deutsch
 
 [🇹🇷 Türkçe](#turkce) | [🇬🇧 English](#english) | 🇩🇪 Deutsch
+
+# Furzhafter-Problem-Knopf 💨
 
 Eine Hommage an die herrlich nutzlosen, aber liebenswerten Desktop-Programme der 2000er-Jahre. Schreiben Sie Ihr Problem, klicken Sie auf **Lösung** — die App erklärt es umgehend (und zu Recht) für unbedeutend.
 
@@ -167,8 +171,8 @@ Eine Hommage an die herrlich nutzlosen, aber liebenswerten Desktop-Programme der
 
 - [x] Grundlegende UI und Sprachunterstützung
 - [x] Speichermechanismus (Speichern, Verlauf anzeigen, Löschen)
-- [ ] Feinschliff — animierter runder "Lösung"-Button ✅, Button "Bisherige Sorgen schließen" ✅, alte Nachricht beim Fokussieren des Textfelds löschen ✅, Icon/Design ✅, Installationspaket ⏳
-- [ ] Zusätzliche Funktionen (Versionierung, Minimieren in die Taskleiste, Soundeffekte, einzelnen Eintrag löschen)
+- [x] Feinschliff — animierter runder "Lösung"-Button ✅, Button "Bisherige Sorgen schließen" ✅, alte Nachricht beim Fokussieren des Textfelds löschen ✅, Icon/Design ✅, Installationspaket ✅
+- [ ] Zusätzliche Funktionen (Versionierung ⏳, Minimieren in die Taskleiste ⏳, Soundeffekte, einzelnen Eintrag löschen ⏳)
 
 ## Lizenz
 
