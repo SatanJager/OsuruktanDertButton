@@ -1,5 +1,7 @@
 # Osuruktan Dert Button 💨
 
+[![Latest Release](https://img.shields.io/github/v/release/SatanJager/OsuruktanDertButton?label=indir&style=for-the-badge)](https://github.com/SatanJager/OsuruktanDertButton/releases/latest)
+
 2000'lerin o meşhur "işe yaramaz ama sevimli masaüstü programlarına bir saygı duruşu. Derdinizi yazun, "Çözüm" butonuna basın - derdinizi anında (ve haklı olarak) önemsiz ilan etsin.
 
 > 📋 Bu proje Jira üzerinden epic/story bazlı olarak takip edilmektedir. Geliştirme süreci sprint'ler halinde ilerlemektedir.
@@ -45,6 +47,8 @@
 | `Localization.cs` | TR/EN/DE metin çevirileri |
 | `ComplaintStore.cs` | Dertlerin diske yazılması/okunması |
 | `BigRedButton.cs` | Özel çizilmiş, animasyonlu yuvarlak "Çözüm" butonu |
+| `AppInfo.cs` | Versiyonlama |
+| `Themes.cs` | Temalar |
 
 ## Yol Haritası
 
@@ -53,7 +57,8 @@ Proje aşağıdaki epic'ler halinde geliştiriliyor:
 - [x] Temel UI ve dil desteği
 - [x] Kayıt mekanizması (dert kaydetme, geçmiş görüntüleme, temizleme)
 - [x] Cilalama — yuvarlak animasyonlu "Çözüm" butonu ✅, "Önceki Dertlerimi Kapat" butonu ✅, kutuya tıklayınca eski mesajı temizleme ✅, ikon/tema ekleme ✅, kurulum paketi (installer) hazırlama ✅
-- [ ] Ekstra özellikler (versiyonlama ⏳, sistem tepsisine küçültme ⏳, ses efektleri ⏳, tek bir derdi silme ⏳)
+- [ ] Ekstra özellikler 1 (enter fonksiyonu ✅, versiyonlama ✅, tek bir derdi silme ⏳)
+- [ ] Ekstra özellikler 2 (yeni temalar ⏳, ses efektleri ⏳, sistem tepsisine küçültme ⏳, menubarı ⏳)
 
 ## Katkıda Bulunma
 
@@ -70,6 +75,8 @@ Henüz belirlenmedi.
 [🇹🇷 Türkçe](#turkce) | 🇬🇧 English | [🇩🇪 Deutsch](#deutsch)
 
 # Fart-Grade Problem Button 💨
+
+[![Latest Release](https://img.shields.io/github/v/release/SatanJager/OsuruktanDertButton?label=download&style=for-the-badge)](https://github.com/SatanJager/OsuruktanDertButton/releases/latest)
 
 A tribute to the beloved, gloriously useless dektop programs of the 2000s. Type your problem, press **Solve** - the app will instantly (and correctly) declare it trivial.
 
@@ -109,13 +116,16 @@ A tribute to the beloved, gloriously useless dektop programs of the 2000s. Type 
 | `Localization.cs` | TR/EN/DE text translations |
 | `ComplaintStore.cs` | Writing/reading complaints to disk |
 | `BigRedButton.cs` | Custom-drawn, animated circular "Solve" button |
+| `AppInfo.cs` | Versioning |
+| `Themes.cs` | Themes |
 
 ## Roadmap
 
 - [x] Basic UI and language support
 - [x] Storage mechanism (saving, viewing history, clearing)
-- [x] Polish — animated circular "Solve" button ✅, "Close previous problems" button ✅, clear old message on textbox focus ✅, icon/theme ✅, installer package ✅⏳
-- [ ] Extra features (versioning ⏳, system tray minimize ⏳, sound effects ⏳, delete a single entry ⏳)
+- [x] Polish — animated circular "Solve" button ✅, "Close previous problems" button ✅, clear old message on textbox focus ✅, icon/theme ✅, installer package ✅
+- [ ] Extra features 1 (enter function ✅, versioning ✅, delete a single entry ⏳)
+- [ ] Extra features 2 (extra themes ⏳, sound effects ⏳, system tray minimize ⏳, Menu Bar ⏳) 
 
 ## License
 
@@ -128,6 +138,8 @@ Not yet determined.
 [🇹🇷 Türkçe](#turkce) | [🇬🇧 English](#english) | 🇩🇪 Deutsch
 
 # Furzhafter-Problem-Knopf 💨
+
+[![Latest Release](https://img.shields.io/github/v/release/SatanJager/OsuruktanDertButton?label=herunterladen&style=for-the-badge)](https://github.com/SatanJager/OsuruktanDertButton/releases/latest)
 
 Eine Hommage an die herrlich nutzlosen, aber liebenswerten Desktop-Programme der 2000er-Jahre. Schreiben Sie Ihr Problem, klicken Sie auf **Lösung** — die App erklärt es umgehend (und zu Recht) für unbedeutend.
 
@@ -167,13 +179,16 @@ Eine Hommage an die herrlich nutzlosen, aber liebenswerten Desktop-Programme der
 | `Localization.cs` | TR/EN/DE Textübersetzungen |
 | `ComplaintStore.cs` | Schreiben/Lesen der Probleme auf die Festplatte |
 | `BigRedButton.cs` | Selbst gezeichneter, animierter runder "Lösung"-Button |
+| `AppInfo.cs` | Versionierung |
+| `Themes.cs` | Design |
 
 ## Roadmap
 
 - [x] Grundlegende UI und Sprachunterstützung
 - [x] Speichermechanismus (Speichern, Verlauf anzeigen, Löschen)
 - [x] Feinschliff — animierter runder "Lösung"-Button ✅, Button "Bisherige Sorgen schließen" ✅, alte Nachricht beim Fokussieren des Textfelds löschen ✅, Icon/Design ✅, Installationspaket ✅
-- [ ] Zusätzliche Funktionen (Versionierung ⏳, Minimieren in die Taskleiste ⏳, Soundeffekte, einzelnen Eintrag löschen ⏳)
+- [ ] Zusätzliche Funktionen 1 (enter ✅, Versionierung ✅, einzelnen Eintrag löschen ⏳) 
+- [ ] Zusätzliche Funktionen 2 (extra design ⏳, Soundeffekte ⏳, Minimieren in die Taskleiste ⏳, Menubar ⏳)
 
 ## Lizenz
 
