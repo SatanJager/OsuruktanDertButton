@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 //using System.Drawing.Drawing2D; //Eski button için lazım
 
 namespace OsuruktanDertButton
@@ -84,6 +85,8 @@ namespace OsuruktanDertButton
                 ScrollBars = ScrollBars.Vertical, //Kullanıcı çok uzun bir yazı yazarsa kaydırma çubuğu çıksın
             };
             _complaintTextBox.Enter += OnComplaintTextBoxEnter;
+            _complaintTextBox.KeyDown += OnComplaintTextBoxKeyDown;
+            _complaintTextBox.TextChanged += OnComplaintTextBoxTextChanged;
 
             // Eski tuş:
             //_solveButton = new Button
@@ -217,6 +220,7 @@ namespace OsuruktanDertButton
         private void OnSolveClicked(object? sender, EventArgs e)
         {
             var complaint = _complaintTextBox.Text.Trim();
+            complaint = complaint.Replace("\r\n", " ").Replace("\n", " ");
 
             if (string.IsNullOrWhiteSpace(complaint))
             {
@@ -238,6 +242,21 @@ namespace OsuruktanDertButton
         private void OnComplaintTextBoxEnter(object? sender, EventArgs e)
         {
             _resultLabel.Text = string.Empty;
+        }
+        private void OnComplaintTextBoxKeyDown(object? sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter && !e.Shift && !e.Control) // Shiftli ve Ctrlli Enter değilse çalış
+            {
+                e.SuppressKeyPress = true;
+                _solveButton.PerformClick();
+            }
+        }
+        private void OnComplaintTextBoxTextChanged(object? sender, EventArgs e)
+        {
+            if (_resultLabel.Text != string.Empty)
+            {
+                _resultLabel.Text = string.Empty;
+            }
         }
     }
 }

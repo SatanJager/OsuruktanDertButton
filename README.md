@@ -159,6 +159,7 @@ Eine Hommage an die herrlich nutzlosen, aber liebenswerten Desktop-Programme der
 
 ## Projektstruktur
 
+| Datei | Beschreibung |
 |---|---|
 | `Program.cs` | Einstiegspunkt der Anwendung |
 | `MainForm.cs` | Hauptfenster — Eingabebildschirm für Probleme, Sprachauswahl |

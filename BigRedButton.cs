@@ -17,6 +17,7 @@ namespace OsuruktanDertButton
         private float _targetOffset = 0f;
         private bool _isMouseDown = false;
         private readonly System.Windows.Forms.Timer _animationTimer;
+        private readonly System.Windows.Forms.Timer _pressReleaseTimer; //Enter'a basıldığında BigRedButton aktif olsun
         public Color LightFaceColor { get; set; } = Color.IndianRed;
         public Color DarkFaceColor { get; set; } = Color.Firebrick;
 
@@ -31,6 +32,9 @@ namespace OsuruktanDertButton
 
             _animationTimer = new System.Windows.Forms.Timer { Interval = 15 };
             _animationTimer.Tick += OnAnimationTick;
+            _pressReleaseTimer = new System.Windows.Forms.Timer {Interval = 120 };
+            _pressReleaseTimer.Tick += OnPressReleaseTimerTick;
+
         }
         private void ApplyCircularRegion()
         {
@@ -112,5 +116,26 @@ namespace OsuruktanDertButton
                 ForeColor,
                 TextFormatFlags.HorizontalCenter | TextFormatFlags.VerticalCenter);
         }
+        public void PerformClick()
+        {
+            if (Enabled && Visible)
+            {
+                _targetOffset = MaxPressOffset;
+                _animationTimer.Start();
+
+                _pressReleaseTimer.Stop();
+                _pressReleaseTimer.Start();
+
+                OnClick(EventArgs.Empty);
+            }
+        }
+        private void OnPressReleaseTimerTick(object? sender, EventArgs e)
+        {
+            _pressReleaseTimer.Stop();
+            _targetOffset = 0f;
+            _animationTimer.Start();
+        }
+
+   
     }
 }
