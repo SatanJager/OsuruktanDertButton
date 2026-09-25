@@ -211,7 +211,7 @@ namespace OsuruktanDertButton
         }
         private void ApplyLanguage()
         {
-            Text = Localization.Get(Localization.WindowTitle, _currentLanguage);
+            Text = $"{Localization.Get(Localization.WindowTitle, _currentLanguage)} v{AppInfo.Version}";
             _languageLabel.Text = Localization.Get(Localization.LanguageLabel, _currentLanguage);
             _promptLabel.Text = Localization.Get(Localization.PromptLabel, _currentLanguage);
             _solveButton.Text = Localization.Get(Localization.SolveButton, _currentLanguage);
