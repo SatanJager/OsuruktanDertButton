@@ -2,7 +2,7 @@
 
 [![Latest Release](https://img.shields.io/github/v/release/SatanJager/OsuruktanDertButton?label=indir&style=for-the-badge)](https://github.com/SatanJager/OsuruktanDertButton/releases/latest)
 
-2000'lerin o meşhur "işe yaramaz ama sevimli masaüstü programlarına bir saygı duruşu. Derdinizi yazun, "Çözüm" butonuna basın - derdinizi anında (ve haklı olarak) önemsiz ilan etsin.
+2000'lerin o meşhur "işe yaramaz ama sevimli masaüstü programlarına bir saygı duruşu. Derdinizi yazın, "Çözüm" butonuna basın - derdinizi anında (ve haklı olarak) önemsiz ilan etsin.
 
 > 📋 Bu proje Jira üzerinden epic/story bazlı olarak takip edilmektedir. Geliştirme süreci sprint'ler halinde ilerlemektedir.
 
@@ -49,6 +49,8 @@
 | `BigRedButton.cs` | Özel çizilmiş, animasyonlu yuvarlak "Çözüm" butonu |
 | `AppInfo.cs` | Versiyonlama |
 | `Themes.cs` | Temalar |
+| `README.md` | Readme - Türkçe, English, Deutsch |
+| `Changelog` | Changelog - Türkçe |
 
 ## Yol Haritası
 
@@ -57,7 +59,7 @@ Proje aşağıdaki epic'ler halinde geliştiriliyor:
 - [x] Temel UI ve dil desteği
 - [x] Kayıt mekanizması (dert kaydetme, geçmiş görüntüleme, temizleme)
 - [x] Cilalama — yuvarlak animasyonlu "Çözüm" butonu ✅, "Önceki Dertlerimi Kapat" butonu ✅, kutuya tıklayınca eski mesajı temizleme ✅, ikon/tema ekleme ✅, kurulum paketi (installer) hazırlama ✅
-- [ ] Ekstra özellikler 1 (enter fonksiyonu ✅, versiyonlama ✅, tek bir derdi silme ⏳)
+- [x] Ekstra özellikler 1 (enter fonksiyonu ✅, versiyonlama ✅, tek bir derdi silme ✅)
 - [ ] Ekstra özellikler 2 (yeni temalar ⏳, ses efektleri ⏳, sistem tepsisine küçültme ⏳, menubarı ⏳)
 
 ## Katkıda Bulunma
@@ -118,13 +120,15 @@ A tribute to the beloved, gloriously useless dektop programs of the 2000s. Type 
 | `BigRedButton.cs` | Custom-drawn, animated circular "Solve" button |
 | `AppInfo.cs` | Versioning |
 | `Themes.cs` | Themes |
+| `README.md` | Readme - Türkçe, English, Deutsch |
+| `Changelog` | Changelog - Türkçe |
 
 ## Roadmap
 
 - [x] Basic UI and language support
 - [x] Storage mechanism (saving, viewing history, clearing)
 - [x] Polish — animated circular "Solve" button ✅, "Close previous problems" button ✅, clear old message on textbox focus ✅, icon/theme ✅, installer package ✅
-- [ ] Extra features 1 (enter function ✅, versioning ✅, delete a single entry ⏳)
+- [x] Extra features 1 (enter function ✅, versioning ✅, delete a single entry ✅)
 - [ ] Extra features 2 (extra themes ⏳, sound effects ⏳, system tray minimize ⏳, Menu Bar ⏳) 
 
 ## License
@@ -181,13 +185,15 @@ Eine Hommage an die herrlich nutzlosen, aber liebenswerten Desktop-Programme der
 | `BigRedButton.cs` | Selbst gezeichneter, animierter runder "Lösung"-Button |
 | `AppInfo.cs` | Versionierung |
 | `Themes.cs` | Design |
+| `README.md` | Readme - Türkçe, English, Deutsch |
+| `Changelog` | Changelog - Türkçe |
 
 ## Roadmap
 
 - [x] Grundlegende UI und Sprachunterstützung
 - [x] Speichermechanismus (Speichern, Verlauf anzeigen, Löschen)
 - [x] Feinschliff — animierter runder "Lösung"-Button ✅, Button "Bisherige Sorgen schließen" ✅, alte Nachricht beim Fokussieren des Textfelds löschen ✅, Icon/Design ✅, Installationspaket ✅
-- [ ] Zusätzliche Funktionen 1 (enter ✅, Versionierung ✅, einzelnen Eintrag löschen ⏳) 
+- [x] Zusätzliche Funktionen 1 (enter ✅, Versionierung ✅, einzelnen Eintrag löschen ✅) 
 - [ ] Zusätzliche Funktionen 2 (extra design ⏳, Soundeffekte ⏳, Minimieren in die Taskleiste ⏳, Menubar ⏳)
 
 ## Lizenz

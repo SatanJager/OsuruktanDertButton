@@ -72,6 +72,12 @@ namespace OsuruktanDertButton
             [Language.English] = "Clear History",
             [Language.German] = "Verlauf löschen"
         };
+        public static readonly Dictionary<Language, string> DeleteSelectedButton = new()
+        {
+            [Language.Turkish] = "Sil",
+            [Language.English] = "Delete",
+            [Language.German] = "Löschen"
+        };
         public static readonly Dictionary<Language, string> CloseHistoryButton = new()
         {
             [Language.Turkish] = "Kapat",

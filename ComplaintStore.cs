@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -50,6 +51,28 @@ namespace OsuruktanDertButton
                 .Where(block => !string.IsNullOrWhiteSpace(block))
                 .ToList();
         }
+        public static void DeleteComplaint(string complaintText)
+        {
+            var complaints = GetAllComplaints();
+            var index = complaints.IndexOf(complaintText);
+
+            if (index == -1)
+                return;
+
+            complaints.RemoveAt(index);
+            RewriteAll(complaints);
+        }
+        private static void RewriteAll(List<string> complaints)
+        {
+            var sb = new StringBuilder();
+            foreach (var complaint in complaints)
+            {
+                sb.AppendLine(complaint);
+                sb.AppendLine(RecordSeperator);
+            }
+            File.WriteAllText(StorageFile, sb.ToString(), Encoding.UTF8);
+        }
+
         public static void ClearAll()
         {
             EnsureStorageExists();

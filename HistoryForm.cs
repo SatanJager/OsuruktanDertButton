@@ -11,6 +11,7 @@ namespace OsuruktanDertButton
         private readonly Language _language;
         private ListBox _historyListBox = null!;
         private Button _clearButton = null!;
+        private Button _deleteButton = null!;
         private Button _closeButton = null!;
 
         public HistoryForm(Language language)
@@ -41,30 +42,42 @@ namespace OsuruktanDertButton
                 Height = 300,
             };
 
-            _clearButton = new Button
+            _deleteButton = new Button
             {
                 Left = 20,
                 Top = 335,
-                Width = 200,
+                Width = 140,
+                Height = 35,
+                Text = Localization.Get(Localization.DeleteSelectedButton, _language),
+            };
+            _deleteButton.FlatStyle = FlatStyle.Flat;
+            _deleteButton.Click += OnDeleteClicked;
+
+            _clearButton = new Button
+            {
+                Left = 165,
+                Top = 335,
+                Width = 140,
                 Height = 35,
                 Text = Localization.Get(Localization.ClearHistoryButton, _language),
             };
-            _clearButton.Click += OnCLearClicked;
             _clearButton.FlatStyle = FlatStyle.Flat;
-
+            _clearButton.Click += OnCLearClicked;
+            
             _closeButton = new Button
             {
-                Left = 250,
+                Left = 310,
                 Top = 335,
-                Width = 200,
+                Width = 140,
                 Height = 35,
                 Text = Localization.Get(Localization.CloseHistoryButton, _language),
             };
-            _closeButton.Click += OnCloseClicked;
             _closeButton.FlatStyle = FlatStyle.Flat;
-           
+            _closeButton.Click += OnCloseClicked;
+            
             // Kontrolleri Ram'den çağırdık
             Controls.Add(_historyListBox);
+            Controls.Add(_deleteButton);
             Controls.Add(_clearButton);
             Controls.Add(_closeButton);
         }
@@ -92,6 +105,14 @@ namespace OsuruktanDertButton
             ComplaintStore.ClearAll();  // dosyanın içeriğini sıfırlıyoruz
             LoadHistory(); // Listeyi geri yükleme
         }
+        private void OnDeleteClicked(object? sender, EventArgs e)
+        {
+            if (_historyListBox.SelectedItem is not string selectedComplaint)
+                return;
+
+            ComplaintStore.DeleteComplaint(selectedComplaint);
+            LoadHistory();
+        }
         private void OnCloseClicked(object? sender, EventArgs e)
         {
             Close();
@@ -107,6 +128,9 @@ namespace OsuruktanDertButton
             BackColor = colors.FormBackColor;
             _historyListBox.BackColor = colors.TextBoxBackColor;
             _historyListBox.ForeColor = colors.TextBoxForeColor;
+
+            _deleteButton.BackColor = colors.ButtonFaceDark;
+            _deleteButton.ForeColor = colors.ButtonTextColor;
 
             _clearButton.BackColor = colors.ButtonFaceDark;
             _clearButton.ForeColor = colors.ButtonTextColor;
