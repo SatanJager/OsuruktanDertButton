@@ -108,6 +108,38 @@ namespace OsuruktanDertButton
             [Language.English] = "Light",
             [Language.German] = "Hell"
         };
+        public static readonly Dictionary<Language, string> ThemeMatrixName = new()
+        {
+            [Language.Turkish] = "Matrix",
+            [Language.English] = "Matrix",
+            [Language.German] = "Matrix"
+        };
+        public static readonly Dictionary<Language, string> ThemeWindowsXpLunaName = new()
+        {
+            [Language.Turkish] = "Windows XP Luna",
+            [Language.English] = "Windows XP Luna",
+            [Language.German] = "Windows XP Luna"
+        };
+        public static readonly Dictionary<Language, string> ThemaAmberTerminalName = new()
+        {
+            [Language.Turkish] = "Kehribar Terminal",
+            [Language.English] = "Amber Terminal",
+            [Language.German] = "Bernstein-Terminal"
+        };
+        public static readonly Dictionary<Language, string> ThemeVaporwaveName = new()
+        {
+            [Language.Turkish] = "Vaporvawe",
+            [Language.English] = "Vaporvawe",
+            [Language.German] = "Vaporwave"
+        };
+        public static readonly Dictionary<Language, string> ThemeMsnMessengerName = new()
+        {
+            [Language.Turkish] = "MSN Messenger",
+            [Language.English] = "MSN Messenger",
+            [Language.German] = "MSN Messenger"
+        };
+
+
 
 
 

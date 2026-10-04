@@ -129,17 +129,14 @@ namespace OsuruktanDertButton
             _historyListBox.BackColor = colors.TextBoxBackColor;
             _historyListBox.ForeColor = colors.TextBoxForeColor;
 
-            _deleteButton.BackColor = colors.ButtonFaceDark;
-            _deleteButton.ForeColor = colors.ButtonTextColor;
+            _deleteButton.BackColor = colors.DangerButtonBackColor;
+            _deleteButton.ForeColor = colors.DangerButtonTextColor;
 
-            _clearButton.BackColor = colors.ButtonFaceDark;
-            _clearButton.ForeColor = colors.ButtonTextColor;
+            _clearButton.BackColor = colors.DangerButtonBackColor;
+            _clearButton.ForeColor = colors.DangerButtonTextColor;
 
             _closeButton.BackColor = colors.SecondaryButtonBackColor;
             _closeButton.ForeColor = colors.SecondaryButtonTextColor;
-
         }
-
-
     }
 }

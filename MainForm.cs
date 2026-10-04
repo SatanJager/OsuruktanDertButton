@@ -159,6 +159,11 @@ namespace OsuruktanDertButton
             _themeComboBox.Items.Add(Localization.Get(Localization.ThemeRetroClassicName, _currentLanguage));
             _themeComboBox.Items.Add(Localization.Get(Localization.ThemeDarkName, _currentLanguage));
             _themeComboBox.Items.Add(Localization.Get(Localization.ThemeLightName, _currentLanguage));
+            _themeComboBox.Items.Add(Localization.Get(Localization.ThemeMatrixName, _currentLanguage));
+            _themeComboBox.Items.Add(Localization.Get(Localization.ThemeWindowsXpLunaName, _currentLanguage));
+            _themeComboBox.Items.Add(Localization.Get(Localization.ThemaAmberTerminalName, _currentLanguage));
+            _themeComboBox.Items.Add(Localization.Get(Localization.ThemeVaporwaveName, _currentLanguage));
+            _themeComboBox.Items.Add(Localization.Get(Localization.ThemeMsnMessengerName, _currentLanguage));
 
             _themeComboBox.SelectedIndex = previousIndex >= 0 ? previousIndex : 0;
         }
@@ -184,6 +189,11 @@ namespace OsuruktanDertButton
                 0 => AppTheme.RetroClassic,
                 1 => AppTheme.Dark,
                 2 => AppTheme.Light,
+                3 => AppTheme.Matrix,
+                4 => AppTheme.WindowsXpLuna,
+                5 => AppTheme.AmberTerminal,
+                6 => AppTheme.Vaporwave,
+                7 => AppTheme.MsnMessenger,
                 _ => AppTheme.RetroClassic,
             };
             Themes.SetTheme(selectedTheme);

@@ -14,6 +14,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 ### Added
 - Dertler listesinden tek bir derdi seçip silme butonu ve işlevi
 - Changelog.md eklendi
+- 5 yeni tema ekleme (Matrix, Windows XP Luna, AmberTerminal, Vaporwave, MSN Messenger)
+
+### Changed
+- DangerButtonBackColor / DangerButtonTextColor ayrımı (Sil/Temizle buttonlarının artık Çözüm butonundan bağımsız renk alması)
 
 ### Fixed
 - Dil değiştirildiğinde "Çözüm" butonunun üzerindeki yazı güncellenmiyordu (BigRedButton, Text değişince kendini yeniden çizmiyordu)

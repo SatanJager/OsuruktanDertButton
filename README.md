@@ -60,7 +60,7 @@ Proje aşağıdaki epic'ler halinde geliştiriliyor:
 - [x] Kayıt mekanizması (dert kaydetme, geçmiş görüntüleme, temizleme)
 - [x] Cilalama — yuvarlak animasyonlu "Çözüm" butonu ✅, "Önceki Dertlerimi Kapat" butonu ✅, kutuya tıklayınca eski mesajı temizleme ✅, ikon/tema ekleme ✅, kurulum paketi (installer) hazırlama ✅
 - [x] Ekstra özellikler 1 (enter fonksiyonu ✅, versiyonlama ✅, tek bir derdi silme ✅)
-- [ ] Ekstra özellikler 2 (yeni temalar ⏳, ses efektleri ⏳, sistem tepsisine küçültme ⏳, menubarı ⏳)
+- [ ] Ekstra özellikler 2 (yeni temalar ✅, ses efektleri ⏳, sistem tepsisine küçültme ⏳, menubarı ⏳)
 
 ## Katkıda Bulunma
 
@@ -129,7 +129,7 @@ A tribute to the beloved, gloriously useless dektop programs of the 2000s. Type 
 - [x] Storage mechanism (saving, viewing history, clearing)
 - [x] Polish — animated circular "Solve" button ✅, "Close previous problems" button ✅, clear old message on textbox focus ✅, icon/theme ✅, installer package ✅
 - [x] Extra features 1 (enter function ✅, versioning ✅, delete a single entry ✅)
-- [ ] Extra features 2 (extra themes ⏳, sound effects ⏳, system tray minimize ⏳, Menu Bar ⏳) 
+- [ ] Extra features 2 (extra themes ✅, sound effects ⏳, system tray minimize ⏳, Menu Bar ⏳) 
 
 ## License
 
@@ -194,7 +194,7 @@ Eine Hommage an die herrlich nutzlosen, aber liebenswerten Desktop-Programme der
 - [x] Speichermechanismus (Speichern, Verlauf anzeigen, Löschen)
 - [x] Feinschliff — animierter runder "Lösung"-Button ✅, Button "Bisherige Sorgen schließen" ✅, alte Nachricht beim Fokussieren des Textfelds löschen ✅, Icon/Design ✅, Installationspaket ✅
 - [x] Zusätzliche Funktionen 1 (enter ✅, Versionierung ✅, einzelnen Eintrag löschen ✅) 
-- [ ] Zusätzliche Funktionen 2 (extra design ⏳, Soundeffekte ⏳, Minimieren in die Taskleiste ⏳, Menubar ⏳)
+- [ ] Zusätzliche Funktionen 2 (extra design ✅, Soundeffekte ⏳, Minimieren in die Taskleiste ⏳, Menubar ⏳)
 
 ## Lizenz
 
