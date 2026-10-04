@@ -52,7 +52,7 @@ namespace OsuruktanDertButton
         {
             [Language.Turkish] = "Önceki Dertlerim",
             [Language.English] = "My Previous Problems",
-            [Language.German] = "Meine bisherige Sorgen"
+            [Language.German] = "Meine bisherigen Sorgen"
         };
         public static readonly Dictionary<Language, string> HistoryWindowTitle = new()
         {

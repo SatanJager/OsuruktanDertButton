@@ -175,6 +175,7 @@ namespace OsuruktanDertButton
             };
             ApplyLanguage(); //çağırıyoruz — bütün kontrollerin metnini yeni seçilen dile göre günceller.
             PopulateThemeComboBoxItems(); // dil değiştiğinde thema combobox'u güncellenir
+            _resultLabel.Text = string.Empty;
         }
         private void OnThemeChanged(object? sender, EventArgs e)
         {
@@ -207,7 +208,7 @@ namespace OsuruktanDertButton
             _solveButton.LightFaceColor = colors.ButtonFaceLight;
             _solveButton.DarkFaceColor = colors.ButtonFaceDark;
             _solveButton.ForeColor = colors.ButtonTextColor;
-            _solveButton.Invalidate();
+            //_solveButton.Invalidate();  //BigRedButton.cs'de override'da Invalidate yaptık ve otomatikleştirdik.
         }
         private void ApplyLanguage()
         {

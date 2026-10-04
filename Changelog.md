@@ -1,12 +1,24 @@
 ﻿# Changelog
 
-Bu projedeki önemli değişiklikler bu dosyada tutulur. Format [Keep a Changelog](https://keepachangelog.com/tr-TR/1.1.0/) standardına, versiyon numaraları [Semantic Versioning](https://semver.org/lang/tr/) kurallarına dayanmaktadır.
+Bu projedeki önemli değişiklikler bu dosyada tutulur. 
+
+Format [Keep a Changelog](https://keepachangelog.com/tr-TR/1.1.0/) standardına, versiyon numaraları [Semantic Versioning](https://semver.org/lang/tr/) kurallarına dayanmaktadır.
+
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
+and this project adheres to [Semantic Versioning](https://semver.org/).
 
 ## [Unreleased]
 
 ### Added
 - Dertler listesinden tek bir derdi seçip silme butonu ve işlevi
 - Changelog.md eklendi
+
+### Fixed
+- Dil değiştirildiğinde "Çözüm" butonunun üzerindeki yazı güncellenmiyordu (BigRedButton, Text değişince kendini yeniden çizmiyordu)
+- Dil değiştirildiğinde ekranda kalan önceki sonuç mesajı eski dilde donup kalıyordu
+- Bazı çeviri hataları düzeltildi
 
 ## [1.0.0] - 2026-09-26
 - Temel arayüz: dert yazma kutusu, "Çözüm" butonu
@@ -20,5 +32,5 @@ Bu projedeki önemli değişiklikler bu dosyada tutulur. Format [Keep a Changelo
 - Enter tuşu ile "Çözüm" butpnu tetikleme (Shift+Enter / Ctrl+Enter ile çok satırlı yazım desteği)
 - Versiyonlama altyapısı (`.csproj` sürüm bilgisi, pencere başlığında görüntüleme)
 
-[Unreleased]: https://github.com/SatanJager/OsuruktanDertButton/compare/tag/v1.0.0...HEAD
+[Unreleased]: https://github.com/SatanJager/OsuruktanDertButton/compare/v1.0.0...HEAD
 [1.0.0]: https://github.com/SatanJager/OsuruktanDertButton/releases/tag/v1.0.0

@@ -73,6 +73,11 @@ namespace OsuruktanDertButton
                 _animationTimer.Start();
             }
         }
+        protected override void OnTextChanged(EventArgs e)
+        {
+            base.OnTextChanged(e);
+            Invalidate();
+        }
         private void OnAnimationTick(object? sender, EventArgs e)
         {
             if (Math.Abs(_currentOffset - _targetOffset) < 0.1f)  
