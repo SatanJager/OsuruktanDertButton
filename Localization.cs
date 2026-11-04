@@ -4,7 +4,6 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
-using static System.Net.WebRequestMethods;
 
 namespace OsuruktanDertButton
 {
@@ -39,12 +38,12 @@ namespace OsuruktanDertButton
         public static readonly Dictionary<Language, string> ResultMessage = new()
         {
             [Language.Turkish] = "Derdiniz çok osuruktan bulundu. Çözüm gerekmiyor.",
-            [Language.English] = "Your problem has been classified as fart-grade trivial. No solution requied.",
+            [Language.English] = "Your problem has been classified as fart-grade trivial. No solution required.",
             [Language.German] = "Ihr Problem wurde als furzig unbedeutend eingestuft. Keine Lösung nötig."
         };
         public static readonly Dictionary<Language, string> EmptyInputWarning = new()
         {
-            [Language.Turkish] = "Önce bir dert yazmalısınız",
+            [Language.Turkish] = "Önce bir dert yazmalısınız.",
             [Language.English] = "You need to type a problem first.",
             [Language.German] = "Sie müssen zuerst ein Problem eingeben."
         };
@@ -90,6 +89,7 @@ namespace OsuruktanDertButton
             [Language.English] = "Language:",
             [Language.German] = "Sprache:"
         };
+        //Thema
         public static readonly Dictionary<Language, string> ThemeRetroClassicName = new()
         {
             [Language.Turkish] = "2000'ler Klasik",
@@ -120,7 +120,7 @@ namespace OsuruktanDertButton
             [Language.English] = "Windows XP Luna",
             [Language.German] = "Windows XP Luna"
         };
-        public static readonly Dictionary<Language, string> ThemaAmberTerminalName = new()
+        public static readonly Dictionary<Language, string> ThemeAmberTerminalName = new()
         {
             [Language.Turkish] = "Kehribar Terminal",
             [Language.English] = "Amber Terminal",
@@ -128,8 +128,8 @@ namespace OsuruktanDertButton
         };
         public static readonly Dictionary<Language, string> ThemeVaporwaveName = new()
         {
-            [Language.Turkish] = "Vaporvawe",
-            [Language.English] = "Vaporvawe",
+            [Language.Turkish] = "Vaporvave",
+            [Language.English] = "Vaporvave",
             [Language.German] = "Vaporwave"
         };
         public static readonly Dictionary<Language, string> ThemeMsnMessengerName = new()
@@ -138,9 +138,43 @@ namespace OsuruktanDertButton
             [Language.English] = "MSN Messenger",
             [Language.German] = "MSN Messenger"
         };
-
-
-
+        //Menu
+        public static readonly Dictionary<Language, string> MenuFile = new()
+        {
+            [Language.Turkish] = "Dosya",
+            [Language.English] = "File",
+            [Language.German] = "Datei"
+        };
+        public static readonly Dictionary<Language, string> MenuExit = new()
+        {
+            [Language.Turkish] = "Çıkış",
+            [Language.English] = "Exit",
+            [Language.German] = "Beenden"
+        };
+        public static readonly Dictionary<Language, string> MenuHelp = new()
+        {
+            [Language.Turkish] = "Yardım",
+            [Language.English] = "Help",
+            [Language.German] = "Hilfe"
+        };
+        public static readonly Dictionary<Language, string> MenuShortcuts = new()
+        {
+            [Language.Turkish] = "Klavye Kısayolları",
+            [Language.English] = "Keyboard Shortcuts",
+            [Language.German] = "Tastenkombinationen"
+        };
+        public static readonly Dictionary<Language, string> MenuAbout = new()
+        {
+            [Language.Turkish] = "Hakkında",
+            [Language.English] = "About",
+            [Language.German] = "Über"
+        };
+        public static readonly Dictionary<Language, string> ShortcutsText = new()
+        {
+            [Language.Turkish] = "Enter: Çözüm\nShift+Enter veya Ctrl+Enter: Yeni Satır",
+            [Language.English] = "Enter: Solve\nShift+Enter or Ctrl+Enter: New Line",
+            [Language.German] = "Enter: Lösung\nShift+Enter oder Strg+Enter: Neue Zeile"
+        };
 
 
         public static string Get(Dictionary<Language, string> dict, Language lang) => dict.TryGetValue(lang, out var value) ? value : dict[Language.English];
