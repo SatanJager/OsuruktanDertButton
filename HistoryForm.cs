@@ -13,6 +13,7 @@ namespace OsuruktanDertButton
         private Button _clearButton = null!;
         private Button _deleteButton = null!;
         private Button _closeButton = null!;
+        private bool _hasComplaints;
 
         public HistoryForm(Language language)
         {
@@ -87,8 +88,9 @@ namespace OsuruktanDertButton
             //listeyi her yüklemeden önce temizliyoruz. Şu an için tek bir kez çağrılıyor (constructor'da) ama ileride mesela "Yenile" butonu eklersen, bu metodu tekrar çağırdığında eski kayıtların üstüne eklenmesin, sıfırdan dolsun diye önemli bir alışkanlık.
 
             var complaints = ComplaintStore.GetAllComplaints();
+            _hasComplaints = complaints.Count > 0;
 
-            if (complaints.Count == 0)
+            if (!_hasComplaints)
             {
                 _historyListBox.Items.Add(Localization.Get(Localization.HistoryEmpty, _language));
                 return;
@@ -107,6 +109,9 @@ namespace OsuruktanDertButton
         }
         private void OnDeleteClicked(object? sender, EventArgs e)
         {
+            if (!_hasComplaints)
+                return;
+            
             if (_historyListBox.SelectedItem is not string selectedComplaint)
                 return;
 
@@ -120,6 +125,14 @@ namespace OsuruktanDertButton
         private void OnThemeChangedGlobally(object? sender, EventArgs e)
         {
             ApplyTheme();
+        }
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing)
+            {
+                Themes.ThemeChanged -= OnThemeChangedGlobally;
+            }
+            base.Dispose(disposing);
         }
         private void ApplyTheme()
         {
