@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Data;
+using System.Runtime.CompilerServices;
 //using System.Drawing.Drawing2D; //Eski button için lazım
 
 namespace OsuruktanDertButton
@@ -17,6 +18,14 @@ namespace OsuruktanDertButton
         private BigRedButton _solveButton = null!; // Yeni button
         private Button _historyButton = null!;
         private Label _resultLabel = null!;
+        private Panel _contentPanel = null!; // içerik paneli
+        //Menu icerigi
+        private MenuStrip _menuStrip = null!;
+        private ToolStripMenuItem _fileMenu = null!;
+        private ToolStripMenuItem _exitMenuItem = null!;
+        private ToolStripMenuItem _helpMenu = null!;
+        private ToolStripMenuItem _shortcutsMenuItem = null!;
+        private ToolStripMenuItem _aboutMenuItem = null!;
 
         public MainForm()
         {
@@ -31,7 +40,7 @@ namespace OsuruktanDertButton
             Text = Localization.Get(Localization.WindowTitle, _currentLanguage);  //Percerenin başlık çubuğunda gözüke yazı
             Icon = new Icon(Path.Combine(AppContext.BaseDirectory, "AppIcon.ico"));
             Width = 480;
-            Height = 480;
+            Height = 510;
             StartPosition = FormStartPosition.CenterScreen; //Percere açılınca ekranın ortasında çıksın
             FormBorderStyle = FormBorderStyle.FixedDialog; //Percere sabit boyutlu.
             MaximizeBox = false; //Sabit boyut - Sağ üsteki pencere büyütücü inaktif
@@ -140,16 +149,61 @@ namespace OsuruktanDertButton
                 ForeColor = Color.DarkRed,
             };
 
-            //Yaratılan nesneleri (RAM' yarattığımız new'leri) ekrana basıyoruz.
-            Controls.Add(_languageLabel);
-            Controls.Add(_languageComboBox);
-            Controls.Add(_themeComboBox);
-            Controls.Add(_promptLabel);
-            Controls.Add(_complaintTextBox);
-            Controls.Add(_solveButton);
-            Controls.Add(_historyButton);
-            Controls.Add(_resultLabel);
+            //Menu ile yeni hali
+            _contentPanel = new Panel { Dock = DockStyle.Fill }; //Panel içeriği doldurdu
+            //Controlleri Panele ekledik
+            _contentPanel.Controls.Add(_languageLabel);
+            _contentPanel.Controls.Add(_languageComboBox);
+            _contentPanel.Controls.Add(_themeComboBox);
+            _contentPanel.Controls.Add(_promptLabel);
+            _contentPanel.Controls.Add(_complaintTextBox);
+            _contentPanel.Controls.Add(_solveButton);
+            _contentPanel.Controls.Add(_historyButton);
+            _contentPanel.Controls.Add(_resultLabel);
+
+            Controls.Add(_contentPanel); //paneli forma ekledik
+
+            BuildMenu();
+
+
+            //Menuden önceki hali
+            //Yaratılan nesneleri (RAM' yarattığımız new'leri) ekrana basıyoruz. 
+            //Controls.Add(_languageLabel);
+            //Controls.Add(_languageComboBox);
+            //Controls.Add(_themeComboBox);
+            //Controls.Add(_promptLabel);
+            //Controls.Add(_complaintTextBox);
+            //Controls.Add(_solveButton);
+            //Controls.Add(_historyButton);
+            //Controls.Add(_resultLabel);
         }
+
+        private void BuildMenu()
+        {
+            _exitMenuItem = new ToolStripMenuItem();
+            _exitMenuItem.Click += OnExitClicked;
+
+            _fileMenu = new ToolStripMenuItem();
+            _fileMenu.DropDownItems.Add(_exitMenuItem);
+
+            _shortcutsMenuItem = new ToolStripMenuItem();
+            _shortcutsMenuItem.Click += OnShortcutsClicked;
+
+            _aboutMenuItem = new ToolStripMenuItem();
+            _aboutMenuItem.Click += OnAboutClicked;
+
+            _helpMenu = new ToolStripMenuItem();
+            _helpMenu.DropDownItems.Add(_shortcutsMenuItem);
+            _helpMenu.DropDownItems.Add(_aboutMenuItem);
+
+            _menuStrip = new MenuStrip();
+            _menuStrip.Items.Add(_fileMenu);
+            _menuStrip.Items.Add(_helpMenu);
+
+            Controls.Add(_menuStrip);
+            MainMenuStrip = _menuStrip;
+        }
+
 
         private void PopulateThemeComboBoxItems()
         {
@@ -161,7 +215,7 @@ namespace OsuruktanDertButton
             _themeComboBox.Items.Add(Localization.Get(Localization.ThemeLightName, _currentLanguage));
             _themeComboBox.Items.Add(Localization.Get(Localization.ThemeMatrixName, _currentLanguage));
             _themeComboBox.Items.Add(Localization.Get(Localization.ThemeWindowsXpLunaName, _currentLanguage));
-            _themeComboBox.Items.Add(Localization.Get(Localization.ThemaAmberTerminalName, _currentLanguage));
+            _themeComboBox.Items.Add(Localization.Get(Localization.ThemeAmberTerminalName, _currentLanguage));
             _themeComboBox.Items.Add(Localization.Get(Localization.ThemeVaporwaveName, _currentLanguage));
             _themeComboBox.Items.Add(Localization.Get(Localization.ThemeMsnMessengerName, _currentLanguage));
 
@@ -219,6 +273,22 @@ namespace OsuruktanDertButton
             _solveButton.DarkFaceColor = colors.ButtonFaceDark;
             _solveButton.ForeColor = colors.ButtonTextColor;
             //_solveButton.Invalidate();  //BigRedButton.cs'de override'da Invalidate yaptık ve otomatikleştirdik.
+
+            _menuStrip.BackColor = colors.FormBackColor;
+            _menuStrip.ForeColor = colors.LabelForeColor;
+
+            foreach (ToolStripMenuItem topItem in _menuStrip.Items)
+            {
+                topItem.ForeColor = colors.LabelForeColor;
+                topItem.DropDown.BackColor = colors.FormBackColor;
+
+                foreach (ToolStripItem subItem in topItem.DropDownItems)
+                {
+                    subItem.ForeColor = colors.LabelForeColor;
+                    subItem.BackColor = colors.FormBackColor;
+                }
+
+            }
         }
         private void ApplyLanguage()
         {
@@ -227,6 +297,13 @@ namespace OsuruktanDertButton
             _promptLabel.Text = Localization.Get(Localization.PromptLabel, _currentLanguage);
             _solveButton.Text = Localization.Get(Localization.SolveButton, _currentLanguage);
             _historyButton.Text = Localization.Get(Localization.HistoryButton, _currentLanguage);
+
+            //Menu
+            _fileMenu.Text = Localization.Get(Localization.MenuFile, _currentLanguage);
+            _exitMenuItem.Text = Localization.Get(Localization.MenuExit, _currentLanguage);
+            _helpMenu.Text = Localization.Get(Localization.MenuHelp, _currentLanguage);
+            _shortcutsMenuItem.Text = Localization.Get(Localization.MenuShortcuts, _currentLanguage);
+            _aboutMenuItem.Text = Localization.Get(Localization.MenuAbout, _currentLanguage);
         }
         private void OnSolveClicked(object? sender, EventArgs e)
         {
@@ -249,6 +326,27 @@ namespace OsuruktanDertButton
         {
             using var historyForm = new HistoryForm(_currentLanguage);
             historyForm.ShowDialog(this);
+        }
+        //Menu Clicked Eventleri
+        private void OnExitClicked(object? sender, EventArgs e)
+        {
+            Close();
+        }
+        private void OnShortcutsClicked(object? sender, EventArgs e)
+        {
+            MessageBox.Show(
+                Localization.Get(Localization.ShortcutsText, _currentLanguage),
+                Localization.Get(Localization.MenuShortcuts, _currentLanguage),
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
+        }
+        private void OnAboutClicked(object? sender, EventArgs e)
+        {
+            MessageBox.Show(
+                $"{Localization.Get(Localization.WindowTitle, _currentLanguage)}\nv{AppInfo.Version}",
+                Localization.Get(Localization.MenuAbout, _currentLanguage),
+                MessageBoxButtons.OK,
+                MessageBoxIcon.Information);
         }
         private void OnComplaintTextBoxEnter(object? sender, EventArgs e)
         {
