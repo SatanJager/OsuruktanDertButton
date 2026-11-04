@@ -203,8 +203,6 @@ namespace OsuruktanDertButton
             Controls.Add(_menuStrip);
             MainMenuStrip = _menuStrip;
         }
-
-
         private void PopulateThemeComboBoxItems()
         {
             var previousIndex = _themeComboBox.SelectedIndex;
@@ -292,7 +290,8 @@ namespace OsuruktanDertButton
         }
         private void ApplyLanguage()
         {
-            Text = $"{Localization.Get(Localization.WindowTitle, _currentLanguage)} v{AppInfo.Version}";
+            //Text = $"{Localization.Get(Localization.WindowTitle, _currentLanguage)} v{AppInfo.Version}"; //App versiyonlu 
+            Text = Localization.Get(Localization.WindowTitle, _currentLanguage);
             _languageLabel.Text = Localization.Get(Localization.LanguageLabel, _currentLanguage);
             _promptLabel.Text = Localization.Get(Localization.PromptLabel, _currentLanguage);
             _solveButton.Text = Localization.Get(Localization.SolveButton, _currentLanguage);
