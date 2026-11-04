@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - Dertler listesinden tek bir derdi seçip silme butonu ve işlevi
 - Changelog.md eklendi
 - 5 yeni tema ekleme (Matrix, Windows XP Luna, AmberTerminal, Vaporwave, MSN Messenger)
+- Menü çubuğu (Dosya>Çıkış, Yardım>Klavye Kısayolları / Hakkında)
 
 ### Changed
 - DangerButtonBackColor / DangerButtonTextColor ayrımı (Sil/Temizle buttonlarının artık Çözüm butonundan bağımsız renk alması)
@@ -23,6 +24,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - Dil değiştirildiğinde "Çözüm" butonunun üzerindeki yazı güncellenmiyordu (BigRedButton, Text değişince kendini yeniden çizmiyordu)
 - Dil değiştirildiğinde ekranda kalan önceki sonuç mesajı eski dilde donup kalıyordu
 - Bazı çeviri hataları düzeltildi
+- Çeviri yazım hataları (İngilizce sonuç mesajı, Vaporwave adı, Türkçe uyarı noktası)
+- Geçmiş penceresi kapandıktan sonra tema olayına abone kalması
+- Geçmiş boşken bilgi mesajının silinebilir öğe olarak seçilmesi
 
 ## [1.0.0] - 2026-09-26
 - Temel arayüz: dert yazma kutusu, "Çözüm" butonu
