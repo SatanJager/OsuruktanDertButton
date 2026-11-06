@@ -138,7 +138,7 @@ namespace OsuruktanDertButton
             [Language.English] = "MSN Messenger",
             [Language.German] = "MSN Messenger"
         };
-        //Menu
+        //MenuBar
         public static readonly Dictionary<Language, string> MenuFile = new()
         {
             [Language.Turkish] = "Dosya",
@@ -175,6 +175,14 @@ namespace OsuruktanDertButton
             [Language.English] = "Enter: Solve\nShift+Enter or Ctrl+Enter: New Line",
             [Language.German] = "Enter: Lösung\nShift+Enter oder Strg+Enter: Neue Zeile"
         };
+        //SystemTray
+        public static readonly Dictionary<Language, string> TrayOpen = new()
+        {
+            [Language.Turkish] = "Aç",
+            [Language.English] = "Open",
+            [Language.German] = "Öffnen"
+        };
+
 
 
         public static string Get(Dictionary<Language, string> dict, Language lang) => dict.TryGetValue(lang, out var value) ? value : dict[Language.English];

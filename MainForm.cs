@@ -14,18 +14,23 @@ namespace OsuruktanDertButton
         private Label _languageLabel = null!;
         private Label _promptLabel = null!;
         private TextBox _complaintTextBox = null!;
-        //private Button _solveButton = null!;  // Eski button
-        private BigRedButton _solveButton = null!; // Yeni button
+        //private Button _solveButton = null!;  // Old Solution Button
+        private BigRedButton _solveButton = null!; // New Solution Button
         private Button _historyButton = null!;
         private Label _resultLabel = null!;
-        private Panel _contentPanel = null!; // içerik paneli
-        //Menu icerigi
+        private Panel _contentPanel = null!; // Content 
+        //Menubar
         private MenuStrip _menuStrip = null!;
         private ToolStripMenuItem _fileMenu = null!;
         private ToolStripMenuItem _exitMenuItem = null!;
         private ToolStripMenuItem _helpMenu = null!;
         private ToolStripMenuItem _shortcutsMenuItem = null!;
         private ToolStripMenuItem _aboutMenuItem = null!;
+        //Systemtray
+        private NotifyIcon _trayIcon = null!;
+        private ContextMenuStrip _trayMenu = null!;
+        private ToolStripMenuItem _trayOpenMenuItem = null!;
+        private ToolStripMenuItem _trayExitMenuItem = null!;
 
         public MainForm()
         {
@@ -165,6 +170,25 @@ namespace OsuruktanDertButton
 
             BuildMenu();
 
+            //SystemTray
+            _trayOpenMenuItem = new ToolStripMenuItem();
+            _trayOpenMenuItem.Click += OnTrayOpenClicked;
+
+            _trayExitMenuItem = new ToolStripMenuItem();
+            _trayExitMenuItem.Click += OnExitClicked;
+
+            _trayMenu = new ContextMenuStrip();
+            _trayMenu.Items.Add(_trayOpenMenuItem);
+            _trayMenu.Items.Add(_trayExitMenuItem);
+
+            _trayIcon = new NotifyIcon
+            {
+                Icon = Icon,
+                Visible = false,
+                ContextMenuStrip = _trayMenu,
+            };
+            _trayIcon.DoubleClick += OnTrayIconDoubleClick;
+            Resize += OnFormResize;
 
             //Menuden önceki hali
             //Yaratılan nesneleri (RAM' yarattığımız new'leri) ekrana basıyoruz. 
@@ -285,7 +309,6 @@ namespace OsuruktanDertButton
                     subItem.ForeColor = colors.LabelForeColor;
                     subItem.BackColor = colors.FormBackColor;
                 }
-
             }
         }
         private void ApplyLanguage()
@@ -297,12 +320,17 @@ namespace OsuruktanDertButton
             _solveButton.Text = Localization.Get(Localization.SolveButton, _currentLanguage);
             _historyButton.Text = Localization.Get(Localization.HistoryButton, _currentLanguage);
 
-            //Menu
+            //MenuBar
             _fileMenu.Text = Localization.Get(Localization.MenuFile, _currentLanguage);
             _exitMenuItem.Text = Localization.Get(Localization.MenuExit, _currentLanguage);
             _helpMenu.Text = Localization.Get(Localization.MenuHelp, _currentLanguage);
             _shortcutsMenuItem.Text = Localization.Get(Localization.MenuShortcuts, _currentLanguage);
             _aboutMenuItem.Text = Localization.Get(Localization.MenuAbout, _currentLanguage);
+
+            //SystemTray
+            _trayIcon.Text = Localization.Get(Localization.WindowTitle, _currentLanguage);
+            _trayOpenMenuItem.Text = Localization.Get(Localization.TrayOpen, _currentLanguage);
+            _trayExitMenuItem.Text = Localization.Get(Localization.MenuExit, _currentLanguage);
         }
         private void OnSolveClicked(object? sender, EventArgs e)
         {
@@ -365,6 +393,38 @@ namespace OsuruktanDertButton
             {
                 _resultLabel.Text = string.Empty;
             }
+        }
+        //Systemtray
+        protected override void OnFormClosed(FormClosedEventArgs e)
+        {
+            Themes.ThemeChanged -= OnThemeChangedGlobally;
+            _trayIcon.Visible = false;
+            _trayIcon.Dispose();
+            _trayMenu.Dispose();
+            base.OnFormClosed(e);
+        }
+        private void OnFormResize(object? sender, EventArgs e)
+        {
+            if (WindowState == FormWindowState.Minimized)
+            {
+                Hide();
+                _trayIcon.Visible = true;
+            }
+        }
+        private void OnTrayIconDoubleClick(object? sender, EventArgs e)
+        {
+            RestoreFromTray();
+        }
+        private void RestoreFromTray()
+        {
+            Show();
+            WindowState = FormWindowState.Normal;
+            Activate();
+            _trayIcon.Visible = false;
+        }
+        private void OnTrayOpenClicked(object? sender, EventArgs e)
+        {
+            RestoreFromTray();
         }
     }
 }

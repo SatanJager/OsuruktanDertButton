@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/).
 - Changelog.md eklendi.
 - 5 yeni tema ekleme (Matrix, Windows XP Luna, AmberTerminal, Vaporwave, MSN Messenger)
 - Menü çubuğu (Dosya>Çıkış, Yardım>Klavye Kısayolları / Hakkında)
+- Sistem tepsisine küçültme: pencere küçültülünce tepsiye iner, çift tıkla veya sağ tık menüsünden (Aç / Çıkış) geri gelir.
 
 ### Changed
 - DangerButtonBackColor / DangerButtonTextColor ayrımı (Sil/Temizle buttonlarının artık Çözüm butonundan bağımsız renk alması)
